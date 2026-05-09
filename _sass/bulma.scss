@@ -1,0 +1,23 @@
+// GameDevSig Colours
+$black: #000000;
+$gamedevsig-green: #0DF15C;
+$gamedevsig-blue: #3690AA;
+
+$navbar-height: 4rem;
+$tablet: 769px;
+$navbar-breakpoint: $tablet;
+
+// Path to Bulma's sass folder
+@use "bulma/sass" with (
+  $black: $black,
+  $navbar-height: $navbar-height,
+  $navbar-breakpoint: $navbar-breakpoint,
+  $family-primary: '"Nunito", sans-serif',
+  $primary: $gamedevsig-green,
+  $link: $gamedevsig-blue,
+  $control-border-width: 2px,
+  $input-shadow: none
+);
+
+// Import the Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");

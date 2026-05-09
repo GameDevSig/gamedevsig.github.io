@@ -1,0 +1,6 @@
+- name: Discord
+  icon: fa-discord
+  link: https://discord.gg/
+- name: LinkedIn
+  icon: fa-linkedin
+  link: https://linkedin.com/

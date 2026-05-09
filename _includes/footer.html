@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="content">
+    <div class="columns is-vcentered">
+      <div class="column has-text-left is-half">
+        Last updated: {{ site.time | date: "%B %Y" }}
+      </div>
+      <div class="column has-text-right is-half">
+        <p>
+          {% for item in site.data.socials %}
+          <a href="{{ item.link }}" rel="noopener" target="_blank" title="{{ item.name }}">
+            <span class="icon is-medium">
+              <i class="fab {{ item.icon }}">
+              </i>
+            </span>
+            {{ item.name }}
+          </a>
+          {% unless forloop.last %}
+          &nbsp;|&nbsp;
+          {% endunless %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
