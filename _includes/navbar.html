@@ -7,7 +7,7 @@
           <img class="navbar-banner" src="/assets/images/gds-logo/banner-nobg.svg">
         </a>
       </p>
-      <a aria-expanded="false" aria-label="menu" class="navbar-burger has-text-info" data-target="navbarMenu"
+      <a aria-expanded="false" aria-label="menu" class="navbar-burger has-text-link" data-target="navbarMenu"
         role="button">
         <span aria-hidden="true">
         </span>
@@ -17,6 +17,9 @@
         </span>
         <span aria-hidden="true">
         </span>
+      </a>
+      <a class="navbar-item has-text-link is-hidden-tablet theme-toggle-button">
+        <i class="fa-solid fa-moon" style="width: 1em;"></i>
       </a>
     </div>
     <div class="navbar-menu" id="navbarMenu">
@@ -32,6 +35,9 @@
         <a href="{{ item.link }}" class="navbar-item has-text-{% if page.url==item.link %}primary" {% else %}link" {%
           endif %} rel="noopener">{{ item.name }}</a>
         {% endfor %}
+        <a class="navbar-item has-text-link is-hidden-mobile theme-toggle-button">
+          <i class="fa-solid fa-moon" style="width: 1em;"></i>
+        </a>
       </div>
     </div>
   </nav>
