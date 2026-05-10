@@ -3,27 +3,78 @@ layout: default
 title: Events
 ---
 
-<h2 class="has-text-warning">Upcoming events:</h2>
-{% assign events_sorted = site.events | sort: "date" | reverse %}
-{%- for event in events_sorted -%}
+{%- assign events_sorted = site.events | where_exp:"item","item.unpublished != true" | sort: "date" | reverse -%}
 {%- assign now = "now" | date: "%s" -%}
-{%- assign target = event.date | date: "%s" -%}
-{%- if target > now -%} <a class="has-text-link" href="{{ event.url }}">
-  <p>{{ event.name }} - {{ event.date | date: '%d %B, %Y' }}</p>
-</a>
-<p>{{ event.content | strip_html | truncate: 150 }}</p>
+{%- assign events_future = "" | split: "" -%}
+{%- assign events_past = "" | split: "" -%}
+
+{%- for item in events_sorted -%}
+{%- assign item_time = item.date | date: "%s" -%}
+{%- if item_time > now -%}
+{%- assign events_future = events_future | push: item -%}
+{%- else -%}
+{%- assign events_past = events_past | push: item -%}
 {%- endif -%}
 {%- endfor -%}
 
+<h2 class="has-text-primary">Upcoming events:</h2>
+{%- if events_future == nil or events_future == empty -%}
+<h3>
+  Whoops! No events for now! Check our Discord for news!
+</h3>
+{%- else -%}
+{%- for event in events_future -%}
+<a href="{{ event.url }}">
+  <div class="card p-4 my-4">
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-three-quarters">
+        <p>
+          <span class="has-text-weight-bold has-text-link is-size-5">{{ event.title }}</span> - {{ event.date |
+          date_to_long_string: "ordinal"
+          }}
+        </p>
+        <p>{{ event.content | strip_html | truncate: 150 }}</p>
+      </div>
+      <div class="column">
+        {% assign img = event.images | first %}
+        {% if img == nil %}
+        {% assign img = "/assets/images/gds-logo/invader_nobg.svg" %}
+        {% endif %}
+        <img src="{{ img }}" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</a>
+{%- endfor -%}
+{%- endif -%}
+
 <br />
 
-<h2 class="has-text-warning">Past events:</h2>
-{%- for event in events_sorted -%}
-{%- assign now = "now" | date: "%s" -%}
-{%- assign target = event.date | date: "%s" -%}
-{%- if target < now -%} <a class="has-text-link" href="{{ event.url }}">
-  <p>{{ event.name }} - {{ event.date | date: '%d %B, %Y' }}</p>
-  </a>
-  <p>{{ event.content | strip_html | truncate: 150 }}</p>
-  {%- endif -%}
-  {%- endfor -%}
+<h2 class="has-text-primary">Past events:</h2>
+{%- for event in events_past -%}
+<a href="{{ event.url }}">
+  <div class="card p-4 my-4">
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-three-quarters">
+        <p>
+          <span class="has-text-weight-bold has-text-link is-size-5">{{ event.title }}</span> - {{ event.date |
+          date_to_long_string: "ordinal"
+          }}
+        </p>
+        <p>{{ event.content | strip_html | truncate: 150 }}</p>
+      </div>
+      <div class="column">
+        {% assign img = event.images | first %}
+        {% if img == nil %}
+        {% assign img = "/assets/images/gds-logo/invader_nobg.svg" %}
+        {% endif %}
+        <img src="{{ img }}" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</a>
+{%- endfor -%}
+
+<div class="has-text-centered py-6">
+  <h2 class="has-text-danger">Archive is still under construction!</h2>
+</div>
