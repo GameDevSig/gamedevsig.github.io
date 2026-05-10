@@ -59,10 +59,13 @@ exclude:
   - package.json
   - package-lock.json
   - Makefile
+  - README.md
 
 collections:
   events:
     output: true
+
+permalink: /:basename/
 
 defaults:
   - scope:

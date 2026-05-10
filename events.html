@@ -3,12 +3,12 @@ layout: default
 title: Events
 ---
 
-Upcoming events:
+<h2 class="has-text-warning is-size-4">Upcoming events:</h2>
 {% assign events_sorted = site.events | sort: "date" | reverse %}
 {%- for event in events_sorted -%}
 {%- assign now = "now" | date: "%s" -%}
 {%- assign target = event.date | date: "%s" -%}
-{%- if target > now -%} <a href="{{ event.url }}">
+{%- if target > now -%} <a class="has-text-link" href="{{ event.url }}">
   <p>{{ event.name }} - {{ event.date | date: '%d %B, %Y' }}</p>
 </a>
 <p>{{ event.content | strip_html | truncate: 150 }}</p>
@@ -17,11 +17,11 @@ Upcoming events:
 
 <br />
 
-Past events:
+<h2 class="has-text-warning is-size-4">Past events:</h2>
 {%- for event in events_sorted -%}
 {%- assign now = "now" | date: "%s" -%}
 {%- assign target = event.date | date: "%s" -%}
-{%- if target < now -%} <a href="{{ event.url }}">
+{%- if target < now -%} <a class="has-text-link" href="{{ event.url }}">
   <p>{{ event.name }} - {{ event.date | date: '%d %B, %Y' }}</p>
   </a>
   <p>{{ event.content | strip_html | truncate: 150 }}</p>
