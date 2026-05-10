@@ -1,6 +1,9 @@
+- name: Email us
+  icon: fas fa-envelope
+  link: mailto:gamedevsig@comp-soc.com
 - name: Discord
-  icon: fa-discord
+  icon: fab fa-discord
   link: https://discord.gg/
 - name: LinkedIn
-  icon: fa-linkedin
+  icon: fab fa-linkedin
   link: https://linkedin.com/

@@ -2,8 +2,17 @@
 layout: default
 title: Home
 ---
+{%- assign discord_link = site.data.socials | where_exp:"item",'item.name == "Discord"' | first -%}
+{%- assign discord_link = discord_link.link -%}
 
 <div class="has-text-centered">
   <img class="main-banner" src="/assets/images/gds-logo/banner_full_nobg.svg">
-  <h2 class="subtitle has-text-grey-light is-size-5">University of Edinburgh's Game Development Society</h2>
+  <h2 class="subtitle has-text-grey-light is-size-5">The University of Edinburgh's Game Development Society</h2>
+</div>
+
+<div class="has-text-centered pt-6">
+  <a class="button is-link px-4 py-3" href="{{ discord_link }}" target="_blank" rel="noopener">
+    <i class="fab fa-discord pr-4 is-size-3"></i>
+    <span class="is-size-5">Join us on Discord!</span>
+  </a>
 </div>

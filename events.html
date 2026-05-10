@@ -2,6 +2,8 @@
 layout: default
 title: Events
 ---
+{%- assign discord_link = site.data.socials | where_exp:"item",'item.name == "Discord"' | first -%}
+{%- assign discord_link = discord_link.link -%}
 
 {%- assign events_sorted = site.events | where_exp:"item","item.unpublished != true" | sort: "date" | reverse -%}
 {%- assign now = "now" | date: "%s" -%}
@@ -20,20 +22,20 @@ title: Events
 <h2 class="has-text-primary">Upcoming events:</h2>
 {%- if events_future == nil or events_future == empty -%}
 <h3>
-  Whoops! No events for now! Check our Discord for news!
+  Whoops! No events for now! Check our <a class="has-text-link" href="{{ discord_link }}">Discord</a> for news!
 </h3>
 {%- else -%}
 {%- for event in events_future -%}
 <a href="{{ event.url }}">
   <div class="card p-4 my-4">
     <div class="columns is-multiline is-mobile">
-      <div class="column is-three-quarters">
+      <div class="column is-four-fifths">
         <p>
           <span class="has-text-weight-bold has-text-link is-size-5">{{ event.title }}</span> - {{ event.date |
           date_to_long_string: "ordinal"
           }}
         </p>
-        <p>{{ event.content | strip_html | truncate: 150 }}</p>
+        <p>{{ event.content | strip_html | truncate: 240 }}</p>
       </div>
       <div class="column">
         {% assign img = event.images | first %}
@@ -55,13 +57,13 @@ title: Events
 <a href="{{ event.url }}">
   <div class="card p-4 my-4">
     <div class="columns is-multiline is-mobile">
-      <div class="column is-three-quarters">
+      <div class="column is-four-fifths">
         <p>
           <span class="has-text-weight-bold has-text-link is-size-5">{{ event.title }}</span> - {{ event.date |
           date_to_long_string: "ordinal"
           }}
         </p>
-        <p>{{ event.content | strip_html | truncate: 150 }}</p>
+        <p>{{ event.content | strip_html | truncate: 240 }}</p>
       </div>
       <div class="column">
         {% assign img = event.images | first %}

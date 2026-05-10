@@ -10,7 +10,3 @@ We held an end-of-the-year games showcase where our members could show their cur
 - **BIOS**
 - **Posthuman** 
 - **Nuo**
-
-<div class="has-text-centered">
-  <img style="width: 50%;" src="/assets/images/events/games-showcase/games_showcase_poster.png">
-</div>

@@ -26,7 +26,7 @@
       <div class="navbar-start">
         {% for item in site.data.socials %}
         <a class="navbar-item has-text-link" href="{{ item.link }}" target="_blank">
-          <i class="fab {{ item.icon }}"></i>
+          <i class="{{ item.icon }}"></i>
         </a>
         {% endfor %}
       </div>

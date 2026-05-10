@@ -5,7 +5,7 @@
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) {
   .main-banner {
     width: 75%;
     height: auto;
@@ -21,10 +21,10 @@
     padding-right: 12rem;
   }
 
-  .main-banner {
-    width: 50%;
-    height: auto;
-  }
+  // .main-banner {
+  //   width: 50%;
+  //   height: auto;
+  // }
 }
 
 .navbar-banner {

@@ -1,22 +1,29 @@
-<footer class="footer p-6">
-  <div class="content">
-    <div class="has-text-centered has-text-grey">
-      <p>
-        GameDevSIG is a Special Interest Group of
-        <a href="https://comp-soc.com/" target="_blank" rel="noopener"><img class="inline-icon"
-            src="/assets/images/compsoc-logo/compsoc-long.png"></a>
-      </p>
+<footer class="footer p-4">
+  <div class="content has-text-grey">
+    <div class="columns">
+      <div class="column has-text-left-tablet has-text-centered-mobile">
+        <p>
+          GameDevSIG is a Special Interest Group of
+          <a href="{{ site.data.links.compsoc }}" target="_blank" rel="noopener"><img class="inline-icon"
+              src="/assets/images/compsoc-logo/compsoc-long.png"></a>
+        </p>
+      </div>
+      <div class="column has-text-right-tablet has-text-centered-mobile is-narrow">
+        <p>
+          Website made with ❤️ by Alessandro Scala
+        </p>
+      </div>
     </div>
-    <div class="columns is-vcentered mt-3">
-      <div class="column has-text-left is-half">
+    <div class="columns is-vcentered">
+      <div class="column has-text-left-tablet has-text-centered-mobile">
         Last updated: {{ site.time | date: "%B %Y" }}
       </div>
-      <div class="column has-text-right is-half">
+      <div class="column has-text-right-tablet has-text-centered-mobile has-text-primary is-narrow">
         <p>
           {% for item in site.data.socials %}
           <a href="{{ item.link }}" rel="noopener" target="_blank" title="{{ item.name }}">
             <span class="icon is-medium">
-              <i class="fab {{ item.icon }}">
+              <i class="{{ item.icon }}">
               </i>
             </span>
             {{ item.name }}

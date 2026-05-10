@@ -17,8 +17,12 @@
 
 <body class="has-navbar-fixed-top">
   {% include navbar.html %}
-  <main class="main-content content m-6">
-    {{ content }}
+  <main class="main-content content m-4">
+    <div class="columns">
+      <div class="column is-full-mobile is-8-desktop is-offset-2-desktop">
+        {{ content }}
+      </div>
+    </div>
   </main>
   {% include footer.html %}
 </body>
