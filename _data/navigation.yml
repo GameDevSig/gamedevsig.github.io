@@ -1,4 +1,6 @@
 - name: About
   link: /about/
+- name: Games
+  link: /games/
 - name: Events
   link: /events/

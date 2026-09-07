@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<div class="columns is-vcentered is-multiline">
+  <div class="column is-align-right">
+    <h1 class="title">{{ page.title }}</h1>
+  </div>
+  <div class="column has-text-right has-text-left-mobile is-narrow">
+    <h2 class="subtitle is-4">
+      {{ page.date | date_to_string: "ordinal" }}
+    </h2>
+  </div>
+</div>
+
+{% if page.images != nil and page.images.size == 1 %}
+{% assign one_image = true %}
+{% else %}
+{% assign one_image = false %}
+{% endif %}
+
+<div class="columns is-multiline">
+  <div class="column is-full-mobile is-three-quarters-tablet {% if one_image == false %}is-half{% endif %}">
+    {{ content }}
+    {% if page.external_link != nil %}
+    <a class="button is-large is-success" style="width: 100%" href="{{ page.external_link }}" target="_blank">
+      Play {{ page.title }}!&nbsp;&nbsp;
+      <i class="fa-solid fa-play"></i>
+    </a>
+    {% endif %}
+  </div>
+  {% unless page.images == nil or page.images == empty %}
+  <div class="column is-full-mobile is-quarter-tablet {% if one_image == false %}is-half{% endif %}">
+    <h2>Screenshots</h2>
+    <div class="columns is-multiline">
+      {% for img in page.images %}
+      <div class="column is-full-tablet {% if one_image == false %}is-half{% endif %}">
+        <img src="{{ img }}" style="width: 100%">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endunless %}
+</div>

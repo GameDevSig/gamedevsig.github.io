@@ -1,0 +1,32 @@
+---
+layout: default
+title: Games
+---
+
+{%- assign games_sorted = site.games | where_exp:"item","item.unpublished != true" | sort: "date" | reverse -%}
+
+<h2 class="has-text-primary">GameDevSig's Games</h2>
+
+{%- for game in games_sorted -%}
+<a href="{{ game.url }}">
+  <div class="card p-4 my-4">
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-four-fifths">
+        <p>
+          <span class="has-text-weight-bold has-text-link is-size-5">{{ game.title }}</span> - {{ game.date |
+          date_to_long_string: "ordinal"
+          }}
+        </p>
+        <p>{{ game.content | strip_html | truncate: 240 }}</p>
+      </div>
+      <div class="column">
+        {% assign img = game.images | first %}
+        {% if img == nil %}
+        {% assign img = "/assets/images/gds-logo/invader_nobg.svg" %}
+        {% endif %}
+        <img src="{{ img }}" style="width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</a>
+{%- endfor -%}
