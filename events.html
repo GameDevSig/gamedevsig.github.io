@@ -19,13 +19,17 @@ title: Events
 {%- endif -%}
 {%- endfor -%}
 
-<h2 class="has-text-primary">Upcoming events:</h2>
+<h2 class="has-text-primary">Upcoming events</h2>
 {%- if events_future == nil or events_future == empty -%}
 <h3>
-  Whoops! No events for now! Check our <a class="has-text-link" href="{{ discord_link }}">Discord</a> for news!
+  Whoops, no events for now! Check our <a class="has-text-link" href="{{ discord_link }}">Discord</a> for news!
 </h3>
 {%- else -%}
-{%- for event in events_future -%}
+<h3>
+  Remember checking our <a class="has-text-link" target="_blank" href="{{ discord_link }}">Discord</a> for news and
+  updates!
+</h3>
+{%- for event in events_future reversed -%}
 <a href="{{ event.url }}">
   <div class="card p-4 my-4">
     <div class="columns is-multiline is-mobile">
@@ -52,7 +56,7 @@ title: Events
 
 <br />
 
-<h2 class="has-text-primary">Past events:</h2>
+<h2 class="has-text-primary">Past events</h2>
 {%- for event in events_past -%}
 <a href="{{ event.url }}">
   <div class="card p-4 my-4">
@@ -78,5 +82,5 @@ title: Events
 {%- endfor -%}
 
 <div class="has-text-centered py-6">
-  <h2 class="has-text-danger">Archive is still under construction!</h2>
+  <h2 class="has-text-danger">Archive under construction</h2>
 </div>

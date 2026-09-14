@@ -6,6 +6,9 @@ title: Games
 {%- assign games_sorted = site.games | where_exp:"item","item.unpublished != true" | sort: "date" | reverse -%}
 
 <h2 class="has-text-primary">GameDevSig's Games</h2>
+<h3>
+  A collection of games made by GameDevSig's members
+</h3>
 
 {%- for game in games_sorted -%}
 <a href="{{ game.url }}">
@@ -30,3 +33,7 @@ title: Games
   </div>
 </a>
 {%- endfor -%}
+
+<div class="has-text-centered py-6">
+  <h2 class="has-text-danger">Archive under construction</h2>
+</div>

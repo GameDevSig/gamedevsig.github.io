@@ -1,1 +1,1 @@
-# GameDevSIG Website
+# GameDevSig Website
