@@ -57,7 +57,7 @@ defaults:
 
 # Default github pages options:
 lsi: false
-safe: true
+safe: false
 incremental: false
 highlighter: rouge
 gist:
