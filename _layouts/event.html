@@ -18,7 +18,7 @@ layout: default
 <div class="columns is-multiline is-centered">
   {% for img in page.images %}
   <div class="column is-full-mobile is-half-tablet">
-    <img src="{{ img }}">
+    <a href="{{ img }}" target="_blank"><img src="{{ img }}" style="width: 100%"></a>
   </div>
   {% endfor %}
 </div>

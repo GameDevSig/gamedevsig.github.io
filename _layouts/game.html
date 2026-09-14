@@ -40,7 +40,7 @@ layout: default
     <div class="columns is-multiline">
       {% for img in page.images %}
       <div class="column is-full-tablet {% if one_image == false %}is-half{% endif %}">
-        <img src="{{ img }}" style="width: 100%">
+        <a href="{{ img }}" target="_blank"><img src="{{ img }}" style="width: 100%"></a>
       </div>
       {% endfor %}
     </div>
