@@ -17,15 +17,21 @@ layout: default
 {% else %}
 {% assign one_image = false %}
 {% endif %}
+{% assign sections = content | split_on: "<!-- CONTEXT -->" %}
+{% assign section_count = sections | size %}
 
 <div class="columns is-multiline">
   <div class="column is-full-mobile is-three-quarters-tablet {% if one_image == false %}is-half{% endif %}">
-    {{ content }}
+    {{ sections[0] }}
     {% if page.external_link != nil %}
-    <a class="button is-large is-success" style="width: 100%" href="{{ page.external_link }}" target="_blank">
+    <a class="button is-large is-success mb-4" style="width: 100%" href="{{ page.external_link }}" target="_blank">
       Play {{ page.title }}!&nbsp;&nbsp;
       <i class="fa-solid fa-play"></i>
     </a>
+    {% endif %}
+    {% if section_count > 1 %}
+    <h5 class="mt-4">Context:</h5>
+    {{ sections[1] }}
     {% endif %}
   </div>
   {% unless page.images == nil or page.images == empty %}
